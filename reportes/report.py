@@ -14,7 +14,7 @@ from pathlib import Path
 from gnews import GNews
 from newspaper import Article, Config
 
-from data import cyclical_indicators_table
+from data import indicators
 
 html_template = """
 <html lang="en">
@@ -33,19 +33,21 @@ html_template = """
     <h3>Monitoreo semanal de cobertura en medios</h1>
     <p>Semana del {start_date} al {end_date}</p>
     
-    <h3>Resumen ejecutivo</h2>
+    <h4>Panorama Económico y Político</h2>
     
     <div>
         {business_summary}
     </div>
 
-    <h3>Indicadores macroeconómicos (semáforo)</h2>
+    <h4>Indicadores Económicos</h2>
     
-    {semaforo}
+    <div>
+        {indicators}
+    </div>
     
     <p class="souces">Fuente: <a href="https://www.inegi.org.mx/app/reloj/semaforo.html">INEGI - Semáforo de componentes cíclicos</a></p>
 
-    <h3>Actualidad de las industrias restaurantera y porcina</h2>
+    <h4>Actualidad de las industrias restaurantera y porcina</h2>
 
     <div> 
         {specialized_articles}
@@ -99,13 +101,11 @@ google_news = GNews(language='es', country='MX', period='8d', max_results=5)
 summary_articles = google_news.get_news('economía OR política')
 summary_articles = ''.join([parse_summary_articles(article) for article in summary_articles])
 
-semaforo = cyclical_indicators_table()
-
 with open(Path(__file__).parent / "report.html", "w", encoding="UTF-8") as f:
     f.write(html_template.format(
         start_date=date.today() - timedelta(days=8),
         end_date=date.today(),
         business_summary=summary_articles, 
-        semaforo=semaforo,
+        indicators=indicators(),
         specialized_articles=specialized_articles),
     )

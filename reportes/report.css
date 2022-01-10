@@ -71,6 +71,14 @@
 
   /* body {margin: 1cm 1cm 2cm 2cm} */
 
+  th {
+    font-size: 12px;
+  }
+
+  td {
+    font-size: 12px;
+  }
+
   img {
     width: 6cm;
     height: 2cm;
