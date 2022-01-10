@@ -28,14 +28,15 @@
   
   @page {
     @top-left {
-      background: #fbc847;
+      background: #162464;
       content: counter(page);
       height: 1cm;
       text-align: center;
       width: 1cm;
+      color: #c1c1c1;
     }
     @top-center {
-      background: #fbc847;
+      background: #162464;
       content: '';
       display: block;
       height: .05cm;
@@ -60,24 +61,28 @@
     @top-center { content: none }
     @top-right { content: none }
   }
-  @page :first {
-    background: url(report-cover.jpg) no-repeat center;
-    background-size: cover;
-    margin: 0;
-  }
   @page chapter {
-    background: #fbc847;
+    background: #162464;
     margin: 0;
     @top-left { content: none }
     @top-center { content: none }
     @top-right { content: none }
   }
 
-  body {margin: 1cm 1cm 2cm 2cm}
+  /* body {margin: 1cm 1cm 2cm 2cm} */
 
   img {
     width: 6cm;
     height: 2cm;
+  }
+
+  p {
+    font-size: 12px;
+    text-align: justify;
+  }
+
+  li {
+    font-size: 12px;
   }
 
   html {
@@ -101,7 +106,6 @@
     font-weight: 400;
   }
   h2 {
-    break-before: always;
     font-size: 24pt;
     string-set: heading content();
   }
@@ -113,22 +117,7 @@
     font-size: 13pt;
   }
   
-  #cover {
-    align-content: space-between;
-    display: flex;
-    flex-wrap: wrap;
-    height: 297mm;
-  }
-  #cover address {
-    background: #fbc847;
-    flex: 1 50%;
-    margin: 0 -2cm;
-    padding: 1cm 0;
-    white-space: pre-wrap;
-  }
-  #cover address:first-of-type {
-    padding-left: 3cm;
-  }
+
   #contents {
     break-before: right;
     break-after: left;

@@ -1,3 +1,5 @@
 generate_pdf.py
 report_template.html
 __pycache__
+data.py
+table.html
