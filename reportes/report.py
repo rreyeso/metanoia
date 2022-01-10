@@ -45,7 +45,7 @@ html_template = """
         {indicators}
     </div>
     
-    <p class="souces">Fuente: <a href="https://www.inegi.org.mx/app/reloj/semaforo.html">INEGI - Semáforo de componentes cíclicos</a></p>
+    <p class="souces">Fuentes: INEGI y Banxico</p>
 
     <h4>Actualidad de las industrias restaurantera y porcina</h2>
 
